@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { recipes } from '../data/recipes';
 import Header from '../components/Header';
 import FilterBar from '../components/FilterBar';
@@ -7,11 +8,19 @@ import Navigation from '../components/Navigation';
 
 function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get('q')?.toLowerCase() || '';
 
-  // Filter recipes based on active category
-  const filteredRecipes = activeFilter === 'All'
-    ? recipes
-    : recipes.filter(recipe => recipe.category === activeFilter);
+  // Filter recipes based on active category and search query
+  const filteredRecipes = recipes.filter(recipe => {
+    const matchesCategory = activeFilter === 'All' || recipe.category === activeFilter;
+    const matchesSearch = !searchQuery ||
+      recipe.title.toLowerCase().includes(searchQuery) ||
+      recipe.clinicalImpression?.toLowerCase().includes(searchQuery) ||
+      recipe.composition.some(ing => ing.toLowerCase().includes(searchQuery));
+
+    return matchesCategory && matchesSearch;
+  });
 
   // Only show complete recipes (those with protocols)
   const completeRecipes = filteredRecipes.filter(recipe => recipe.protocol.length > 0);
