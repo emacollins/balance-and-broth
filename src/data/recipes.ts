@@ -4,9 +4,10 @@
 // - Structural: Baking and foundational recipes
 // - Mobilization: Quick meals and easy preparations
 
+import type { Recipe, CategoryFilter, StabilityLabel, StabilityGrade } from '../types/recipe';
 import placeholder from '../assets/placeholder.jpg';
 
-export const recipes = [
+export const recipes: Recipe[] = [
   {
     id: 1,
     title: "Chocolate Chip Cookies",
@@ -730,18 +731,18 @@ export const recipes = [
   }
 ];
 
-export const categories = [
+export const categories: readonly CategoryFilter[] = [
   { id: "All", label: "All Cases", description: "View complete caseload" },
   { id: "Restorative", label: "Restorative", description: "Soups & healing foods" },
   { id: "Structural", label: "Structural", description: "Baking & foundations" },
   { id: "Mobilization", label: "Mobilization", description: "Quick meals" }
-];
+] as const;
 
-export const getStabilityLabel = (grade) => {
+export function getStabilityLabel(grade: StabilityGrade): StabilityLabel {
   switch(grade) {
     case 1: return "Easy";
     case 2: return "Moderate";
     case 3: return "Advanced";
     default: return "Unknown";
   }
-};
+}

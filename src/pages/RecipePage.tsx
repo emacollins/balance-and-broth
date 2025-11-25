@@ -1,11 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { recipes, getStabilityLabel } from '../data/recipes';
+import type { Recipe } from '../types/recipe';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 
 function RecipePage() {
-  const { id } = useParams();
-  const recipe = recipes.find(r => r.id === parseInt(id));
+  const { id } = useParams<{ id: string }>();
+
+  // Type-safe recipe lookup with defensive check
+  const recipe: Recipe | undefined = id
+    ? recipes.find((r: Recipe) => r.id === parseInt(id, 10))
+    : undefined;
 
   if (!recipe) {
     return (
@@ -21,7 +26,8 @@ function RecipePage() {
     );
   }
 
-  const stabilityPercent = (recipe.stabilityGrade / 3) * 100;
+  // TypeScript now knows recipe is defined here!
+  const stabilityPercent: number = (recipe.stabilityGrade / 3) * 100;
 
   return (
     <div className="min-h-screen bg-parchment grid-background pb-20 md:pb-8">
@@ -128,7 +134,7 @@ function RecipePage() {
                 <span className="text-xs font-mono text-charcoal/40 font-normal tracking-widest uppercase">Ingredients</span>
               </h2>
               <ul className="space-y-4">
-                {recipe.composition.map((ingredient, index) => (
+                {recipe.composition.map((ingredient: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group">
                     <span className="w-1.5 h-1.5 mt-2 rounded-full bg-sage/40 group-hover:bg-sage transition-colors flex-shrink-0" />
                     <span className="text-charcoal/80 font-sans leading-relaxed group-hover:text-charcoal transition-colors">
@@ -150,7 +156,7 @@ function RecipePage() {
               {/* Spine line */}
               <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-charcoal/10" />
 
-              {recipe.protocol.map((step, index) => (
+              {recipe.protocol.map((step: string, index: number) => (
                 <li key={index} className="flex gap-8 relative group">
                   {/* Step number node */}
                   <div className="w-10 h-10 rounded-full bg-parchment border-2 border-charcoal/20 text-charcoal/60 flex items-center justify-center font-serif text-lg font-bold flex-shrink-0 z-10 group-hover:border-sage group-hover:text-sage transition-colors shadow-sm">

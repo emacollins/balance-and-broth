@@ -1,6 +1,7 @@
 import { categories } from '../data/recipes';
+import type { FilterBarProps } from '../types/components';
 
-function FilterBar({ activeFilter, setActiveFilter }) {
+function FilterBar({ activeFilter, setActiveFilter }: FilterBarProps) {
   return (
     <div className="flex flex-wrap justify-center gap-2 md:gap-0 py-8 border-b border-charcoal/10 mb-8">
       {categories.map((category) => (

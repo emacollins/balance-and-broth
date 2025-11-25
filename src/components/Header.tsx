@@ -6,15 +6,15 @@ function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const [searchTerm, setSearchTerm] = useState(searchParams.get('q') || '');
+  const [searchTerm, setSearchTerm] = useState<string>(searchParams.get('q') || '');
 
   // Sync local state with URL param
   useEffect(() => {
     setSearchTerm(searchParams.get('q') || '');
   }, [searchParams]);
 
-  const handleSearchChange = (e) => {
-    const term = e.target.value;
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const term: string = e.target.value;
     setSearchTerm(term);
 
     // If on home page, update URL immediately for real-time filtering
@@ -27,7 +27,7 @@ function Header() {
     }
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // If not on home page, navigate to home with search param
     if (location.pathname !== '/') {
