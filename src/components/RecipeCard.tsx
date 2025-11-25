@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { getStabilityLabel } from '../data/recipes';
+import type { RecipeCardProps } from '../types/components';
 
-function RecipeCard({ recipe }) {
-  const stabilityPercent = (recipe.stabilityGrade / 3) * 100;
+function RecipeCard({ recipe }: RecipeCardProps) {
+  const stabilityPercent: number = (recipe.stabilityGrade / 3) * 100;
 
   return (
     <Link

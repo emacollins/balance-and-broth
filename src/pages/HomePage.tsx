@@ -1,29 +1,30 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { recipes } from '../data/recipes';
+import type { Recipe, RecipeCategory } from '../types/recipe';
 import Header from '../components/Header';
 import FilterBar from '../components/FilterBar';
 import RecipeCard from '../components/RecipeCard';
 import Navigation from '../components/Navigation';
 
 function HomePage() {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<RecipeCategory | 'All'>('All');
   const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get('q')?.toLowerCase() || '';
+  const searchQuery: string = searchParams.get('q')?.toLowerCase() || '';
 
   // Filter recipes based on active category and search query
-  const filteredRecipes = recipes.filter(recipe => {
-    const matchesCategory = activeFilter === 'All' || recipe.category === activeFilter;
-    const matchesSearch = !searchQuery ||
+  const filteredRecipes: Recipe[] = recipes.filter((recipe: Recipe) => {
+    const matchesCategory: boolean = activeFilter === 'All' || recipe.category === activeFilter;
+    const matchesSearch: boolean = !searchQuery ||
       recipe.title.toLowerCase().includes(searchQuery) ||
-      recipe.clinicalImpression?.toLowerCase().includes(searchQuery) ||
-      recipe.composition.some(ing => ing.toLowerCase().includes(searchQuery));
+      recipe.clinicalImpression.toLowerCase().includes(searchQuery) ||
+      recipe.composition.some((ing: string) => ing.toLowerCase().includes(searchQuery));
 
     return matchesCategory && matchesSearch;
   });
 
   // Only show complete recipes (those with protocols)
-  const completeRecipes = filteredRecipes.filter(recipe => recipe.protocol.length > 0);
+  const completeRecipes: Recipe[] = filteredRecipes.filter((recipe: Recipe) => recipe.protocol.length > 0);
 
   return (
     <div className="min-h-screen bg-parchment grid-background pb-20 md:pb-0">
@@ -45,7 +46,7 @@ function HomePage() {
 
         {/* Recipe Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mt-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          {completeRecipes.map(recipe => (
+          {completeRecipes.map((recipe: Recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
@@ -66,7 +67,7 @@ function HomePage() {
         )}
 
         {/* Coming Soon Section */}
-        {filteredRecipes.some(r => r.protocol.length === 0) && (
+        {filteredRecipes.some((r: Recipe) => r.protocol.length === 0) && (
           <div className="mt-24 pt-12 border-t border-charcoal/10">
             <h3 className="font-serif text-2xl text-charcoal/40 text-center mb-8 flex items-center justify-center gap-4">
               <span className="h-px w-12 bg-charcoal/10"></span>
@@ -75,8 +76,8 @@ function HomePage() {
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {filteredRecipes
-                .filter(r => r.protocol.length === 0)
-                .map(recipe => (
+                .filter((r: Recipe) => r.protocol.length === 0)
+                .map((recipe: Recipe) => (
                   <span
                     key={recipe.id}
                     className="px-4 py-2 bg-charcoal/5 text-charcoal/40 text-sm font-mono rounded-sm border border-transparent hover:border-charcoal/10 transition-colors cursor-default"
