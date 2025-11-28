@@ -6,25 +6,18 @@ import Header from '../components/Header';
 import FilterBar from '../components/FilterBar';
 import RecipeCard from '../components/RecipeCard';
 import Navigation from '../components/Navigation';
+import { filterRecipes } from '../utils/search';
 
 function HomePage() {
   const [activeFilter, setActiveFilter] = useState<RecipeCategory | 'All'>('All');
   const [searchParams] = useSearchParams();
   const searchQuery: string = searchParams.get('q')?.toLowerCase() || '';
 
-  // Filter recipes based on active category and search query
-  const filteredRecipes: Recipe[] = recipes.filter((recipe: Recipe) => {
-    const matchesCategory: boolean = activeFilter === 'All' || recipe.category === activeFilter;
-    const matchesSearch: boolean = !searchQuery ||
-      recipe.title.toLowerCase().includes(searchQuery) ||
-      recipe.clinicalImpression.toLowerCase().includes(searchQuery) ||
-      recipe.composition.some((ing: string) => ing.toLowerCase().includes(searchQuery));
+  const filteredRecipes: Recipe[] = filterRecipes(recipes, searchQuery, activeFilter, Infinity, false)
 
-    return matchesCategory && matchesSearch;
-  });
-
-  // Only show complete recipes (those with protocols)
-  const completeRecipes: Recipe[] = filteredRecipes.filter((recipe: Recipe) => recipe.protocol.length > 0);
+  const completeRecipes: Recipe[] = filteredRecipes.filter(
+    (recipe: Recipe) => recipe.protocol.length > 0
+  );
 
   return (
     <div className="min-h-screen bg-parchment grid-background pb-20 md:pb-0">
