@@ -5,7 +5,6 @@ import type { Recipe, RecipeCategory } from '../types/recipe';
 import Header from '../components/Header';
 import FilterBar from '../components/FilterBar';
 import RecipeCard from '../components/RecipeCard';
-import Navigation from '../components/Navigation';
 import { filterRecipes } from '../utils/search';
 
 function HomePage() {
@@ -81,8 +80,6 @@ function HomePage() {
           </div>
         )}
       </main>
-
-      <Navigation />
     </div>
   );
 }
