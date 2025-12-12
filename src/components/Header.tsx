@@ -34,8 +34,8 @@ const Header = forwardRef<HTMLDivElement>((props, ref) => {
   };
 
   return (
-    <header ref={ref} className="bg-parchment border-b border-charcoal/10 py-6">
-      <div className="max-w-6xl mx-auto px-4">
+    <header ref={ref} className="bg-parchment border-b border-charcoal/10 py-6 relative">
+      <div className="max-w-6xl mx-auto px-4 overflow-visible">
         <Link to="/" className="block text-center group">
           <h1 className="font-serif text-4xl md:text-6xl text-charcoal tracking-wide flex items-center justify-center gap-4">
             BALANCE
@@ -52,7 +52,7 @@ const Header = forwardRef<HTMLDivElement>((props, ref) => {
         </Link>
 
         {/* Navigation & Search */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8 overflow-visible">
           <nav className="flex gap-8 text-sm">
             <Link
               to="/"

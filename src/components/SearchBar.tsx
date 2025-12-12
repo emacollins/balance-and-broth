@@ -31,7 +31,7 @@ export function SearchBar({ searchTerm, setSearchTerm, onSelectResult }: SearchB
   };
 
   return (
-    <div className="relative w-full max-w-xs">
+    <div className="relative w-full max-w-xs z-50">
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
@@ -51,7 +51,7 @@ export function SearchBar({ searchTerm, setSearchTerm, onSelectResult }: SearchB
       </form>
 
       {isDropdownOpen && topMatches.length > 0 && (
-        <div className="absolute top-full left-0 w-full mt-1 bg-white border border-charcoal/20 rounded-lg shadow-lg z-10 overflow-hidden">
+        <div className="absolute top-full left-0 w-full mt-1 bg-white border border-charcoal/20 rounded-lg shadow-lg z-[100] overflow-hidden max-h-64 overflow-y-auto">
           {topMatches.map((recipe) => (
             <button
               key={recipe.id}
