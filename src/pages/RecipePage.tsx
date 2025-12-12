@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { recipes, getDifficultyLabel } from '../data/recipes';
 import type { Recipe } from '../types/recipe';
 import Header from '../components/Header';
-import Navigation from '../components/Navigation';
 
 function RecipePage() {
   const { id } = useParams<{ id: string }>();
@@ -196,8 +195,6 @@ function RecipePage() {
           </div>
         )}
       </main>
-
-      <Navigation />
     </div>
   );
 }
