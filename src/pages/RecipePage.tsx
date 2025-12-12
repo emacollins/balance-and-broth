@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { recipes, getDifficultyLabel } from '../data/recipes';
 import type { Recipe } from '../types/recipe';
@@ -6,6 +7,7 @@ import Navigation from '../components/Navigation';
 
 function RecipePage() {
   const { id } = useParams<{ id: string }>();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   // Type-safe recipe lookup with defensive check
   const recipe: Recipe | undefined = id
@@ -26,12 +28,19 @@ function RecipePage() {
     );
   }
 
+  useEffect(() => {
+    if (headerRef.current) {
+      const headerHeight = headerRef.current.offsetHeight;
+      window.scrollTo({ top: headerHeight, behavior: 'smooth' });
+    }
+  }, [id]);
+
   // TypeScript now knows recipe is defined here!
   const difficultyPercent: number = (recipe.difficultyLevel / 3) * 100;
 
   return (
     <div className="min-h-screen bg-parchment grid-background pb-20 md:pb-8">
-      <Header />
+      <Header ref={headerRef} />
 
       <main className="max-w-5xl mx-auto px-4 py-12">
         {/* Back Link */}

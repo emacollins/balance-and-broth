@@ -1,11 +1,11 @@
 import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { SearchBar } from '../components/SearchBar';
 import type { Recipe } from '../types/recipe';
 
 import logo from '../assets/logo.png';
 
-function Header() {
+const Header = forwardRef<HTMLDivElement>((props, ref) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-parchment border-b border-charcoal/10 py-6">
+    <header ref={ref} className="bg-parchment border-b border-charcoal/10 py-6">
       <div className="max-w-6xl mx-auto px-4">
         <Link to="/" className="block text-center group">
           <h1 className="font-serif text-4xl md:text-6xl text-charcoal tracking-wide flex items-center justify-center gap-4">
@@ -42,12 +42,12 @@ function Header() {
             <img
               src={logo}
               alt="&"
-              className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-sm"
+              className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-210 drop-shadow-sm"
             />
             BROTH
           </h1>
           <p className="text-charcoal/60 text-sm mt-3 tracking-widest uppercase">
-            Culinary Recipe Collection
+            Claire's Recipe Collection
           </p>
         </Link>
 
@@ -72,6 +72,8 @@ function Header() {
       </div>
     </header>
   );
-}
+});
+
+Header.displayName = 'Header';
 
 export default Header;
