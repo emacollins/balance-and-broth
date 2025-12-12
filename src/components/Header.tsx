@@ -1,11 +1,14 @@
-import { Link, useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { SearchBar } from '../components/SearchBar';
+import type { Recipe } from '../types/recipe';
+
 import logo from '../assets/logo.png';
 
 function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState<string>(searchParams.get('q') || '');
 
   // Sync local state with URL param
@@ -13,8 +16,7 @@ function Header() {
     setSearchTerm(searchParams.get('q') || '');
   }, [searchParams]);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const term: string = e.target.value;
+  const handleSearchTermChange = (term: string): void => {
     setSearchTerm(term);
 
     // If on home page, update URL immediately for real-time filtering
@@ -27,12 +29,8 @@ function Header() {
     }
   };
 
-  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    // If not on home page, navigate to home with search param
-    if (location.pathname !== '/') {
-      navigate(`/?q=${encodeURIComponent(searchTerm)}`);
-    }
+  const handleSelectResult = (recipe: Recipe): void => {
+    navigate(`/recipe/${recipe.id}`);
   };
 
   return (
@@ -64,24 +62,12 @@ function Header() {
             </Link>
           </nav>
 
-          {/* Search Bar */}
-          <form onSubmit={handleSearchSubmit} className="relative w-full max-w-xs">
-            <input
-              type="text"
-              placeholder="Search cases..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="w-full bg-white/50 border border-charcoal/20 rounded-full py-2 pl-4 pr-10 text-sm text-charcoal focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage transition-all placeholder:text-charcoal/30 font-mono"
-            />
-            <button
-              type="submit"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal/40 hover:text-sage transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-          </form>
+          {/* Search Bar Component */}
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={handleSearchTermChange}
+            onSelectResult={handleSelectResult}
+          />
         </div>
       </div>
     </header>
