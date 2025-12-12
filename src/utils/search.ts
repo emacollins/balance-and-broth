@@ -14,14 +14,14 @@ export function filterRecipes(
         const matchesCategory: boolean = category === 'All' || recipe.category === category;
         const matchesSearch: boolean = !searchQuery ||
             recipe.title.toLowerCase().includes(searchQuery) ||
-            recipe.clinicalImpression.toLowerCase().includes(searchQuery) ||
-            recipe.composition.some((ing: string) => ing.toLowerCase().includes(searchQuery));
+            recipe.description.toLowerCase().includes(searchQuery) ||
+            recipe.ingredients.some((ing: string) => ing.toLowerCase().includes(searchQuery));
 
         return matchesCategory && matchesSearch;
     });
 
     const completeRecipes = onlyComplete
-        ? filteredRecipes.filter((recipe: Recipe) => recipe.protocol.length > 0)
+        ? filteredRecipes.filter((recipe: Recipe) => recipe.instructions.length > 0)
         : filteredRecipes;
 
     return completeRecipes.slice(0, limit)

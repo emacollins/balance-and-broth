@@ -1,22 +1,24 @@
 // Recipe data for Balance & Broth
-// Categories use PT-inspired terminology:
-// - Restorative: Soups and healing foods
-// - Structural: Baking and foundational recipes
-// - Mobilization: Quick meals and easy preparations
+// Categories organize recipes by meal type:
+// - Breakfast: Morning meals
+// - Lunch: Midday dishes
+// - Dinner: Evening meals
+// - Dessert: Sweet treats
+// - Sides & Snacks: Accompaniments and appetizers
 
-import type { Recipe, CategoryFilter, StabilityLabel, StabilityGrade } from '../types/recipe';
+import type { Recipe, CategoryFilter, DifficultyLabel, DifficultyLevel } from '../types/recipe';
 import placeholder from '../assets/placeholder.jpg';
 
 export const recipes: Recipe[] = [
   {
     id: 1,
     title: "Chocolate Chip Cookies",
-    category: "Structural",
+    category: "Dessert",
     time: "30 minutes",
     servings: "30 cookies",
-    stabilityGrade: 1,
-    clinicalImpression: "A classic intervention for mood elevation and household harmony. Best administered warm.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A classic dish for mood elevation and household harmony. Best served warm.",
+    ingredients: [
       "3 Cups Flour",
       "1 Tsp Baking Soda",
       "1 Tsp Baking Powder",
@@ -28,7 +30,7 @@ export const recipes: Recipe[] = [
       "2 Sticks Butter (1 cup)",
       "1 Bag Chocolate Chips"
     ],
-    protocol: [
+    instructions: [
       "Preheat oven to 350 degrees",
       "Mix granulated sugar, brown sugar, vanilla, and softened butter",
       "Add eggs to mix",
@@ -44,12 +46,12 @@ export const recipes: Recipe[] = [
   {
     id: 2,
     title: "Molokhia",
-    category: "Restorative",
+    category: "Dinner",
     time: "1.5 hours",
     servings: "20 servings",
-    stabilityGrade: 3,
-    clinicalImpression: "A traditional Egyptian comfort food that nourishes both body and soul. Excellent for family gatherings.",
-    composition: [
+    difficultyLevel: 3,
+    description: "A traditional Egyptian comfort food that nourishes both body and soul. Excellent for family gatherings.",
+    ingredients: [
       "1 Package Minced Molokhia",
       "1 Uncooked Chicken (or 4-5 Chicken Breasts)",
       "2 Stalks Celery",
@@ -63,7 +65,7 @@ export const recipes: Recipe[] = [
       "3 cups rice",
       "1 Tbsp Vegetable Oil"
     ],
-    protocol: [
+    instructions: [
       "Chicken Broth: Bring a medium-large pot of water to a boil",
       "Cut up carrots, celery, onion, and parsley",
       "Put chicken and cut veggies into water once boiling",
@@ -89,12 +91,12 @@ export const recipes: Recipe[] = [
   {
     id: 3,
     title: "Foul",
-    category: "Mobilization",
+    category: "Dinner",
     time: "15 minutes",
     servings: "4 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A quick protein-rich intervention from the Mediterranean. Perfect for busy mornings requiring sustained energy.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A quick protein-rich dish from the Mediterranean. Perfect for busy mornings requiring lasting energy.",
+    ingredients: [
       "Olive Oil",
       "Tomato",
       "Cucumber",
@@ -106,7 +108,7 @@ export const recipes: Recipe[] = [
       "Can of Foul Moudammas",
       "Pita Bread"
     ],
-    protocol: [
+    instructions: [
       "Dice up cucumber, tomato, green onion, and parsley and put in a bowl",
       "Add olive oil, salt, pepper, lemon, cumin, and the can of foul",
       "Mix and serve with pita bread"
@@ -117,12 +119,12 @@ export const recipes: Recipe[] = [
   {
     id: 4,
     title: "Banana Bread",
-    category: "Structural",
+    category: "Dessert",
     time: "1.5 hours",
     servings: "1 loaf",
-    stabilityGrade: 2,
-    clinicalImpression: "A stabilizing baked intervention that utilizes overripe specimens. Therapeutic aroma fills the treatment area.",
-    composition: [
+    difficultyLevel: 2,
+    description: "A comforting baked dish that utilizes overripe bananas. Wonderful aroma fills the kitchen.",
+    ingredients: [
       "1/2 cup butter, melted",
       "1 cup white sugar",
       "2 large eggs",
@@ -135,7 +137,7 @@ export const recipes: Recipe[] = [
       "2 medium bananas, sliced",
       "2 tsp cinnamon"
     ],
-    protocol: [
+    instructions: [
       "Preheat oven to 350 degrees F. Grease a 9x5 inch loaf pan",
       "In a large bowl, stir together the melted butter and sugar. Add the eggs and vanilla, mix well",
       "Combine the flour, baking soda, salt, and cinnamon, stir into the butter mixture until smooth",
@@ -148,19 +150,19 @@ export const recipes: Recipe[] = [
   {
     id: 5,
     title: "Tortillas",
-    category: "Structural",
+    category: "Sides & Snacks",
     time: "30 minutes",
     servings: "16-20 tortillas",
-    stabilityGrade: 2,
-    clinicalImpression: "Foundation elements for multiple meal applications. Homemade preparation significantly improves outcomes.",
-    composition: [
+    difficultyLevel: 2,
+    description: "Foundation elements for multiple meal applications. Homemade preparation significantly improves taste.",
+    ingredients: [
       "3 cups all-purpose flour",
       "1 teaspoon salt",
       "1 teaspoon baking powder",
       "1/3 cup extra virgin olive oil",
       "1 cup warm water"
     ],
-    protocol: [
+    instructions: [
       "Combine flour, baking powder, and salt in a large bowl and mix",
       "Add olive oil and warm water and mix until solid ball of dough",
       "Add flour if too sticky and water if too doughy",
@@ -173,12 +175,12 @@ export const recipes: Recipe[] = [
   {
     id: 6,
     title: "Tomato Soup",
-    category: "Restorative",
+    category: "Lunch",
     time: "50 minutes",
     servings: "6 servings",
-    stabilityGrade: 2,
-    clinicalImpression: "Patient reported feeling cold. This intervention provided immediate warmth and comfort.",
-    composition: [
+    difficultyLevel: 2,
+    description: "Perfect when you're feeling cold. This dish provides immediate warmth and comfort.",
+    ingredients: [
       "2 Tbs. extra-virgin olive oil",
       "1 Tbs. unsalted butter",
       "1.5 large white onion, finely chopped",
@@ -190,7 +192,7 @@ export const recipes: Recipe[] = [
       "Salt and pepper",
       "3 Tbs. thinly sliced fresh basil"
     ],
-    protocol: [
+    instructions: [
       "Heat the oil and butter over medium-low heat until the butter melts. Add the onion and garlic and cook",
       "Add the flour and stir to coat the onion and garlic",
       "Add the broth, tomatoes, rosemary, basil, salt and pepper. Bring to a simmer over medium-high heat while stirring",
@@ -203,12 +205,12 @@ export const recipes: Recipe[] = [
   {
     id: 7,
     title: "Coffee Cake",
-    category: "Structural",
+    category: "Breakfast",
     time: "45 minutes",
     servings: "15 servings",
-    stabilityGrade: 2,
-    clinicalImpression: "Ideal for morning gatherings. The cinnamon streusel layer provides exceptional satisfaction.",
-    composition: [
+    difficultyLevel: 2,
+    description: "Ideal for morning gatherings. The cinnamon streusel layer provides exceptional satisfaction.",
+    ingredients: [
       "1 cup oil",
       "2 eggs beaten",
       "1 tsp vanilla",
@@ -221,7 +223,7 @@ export const recipes: Recipe[] = [
       "2 tsp cinnamon",
       "1/3 - 1/2 cup butter melted"
     ],
-    protocol: [
+    instructions: [
       "In a large mixing bowl, combine oil, eggs, vanilla and milk together",
       "In a medium bowl, blend together sugar, flour, baking powder and salt",
       "Combine egg mixture with flour mixture. Pour half the batter into a lightly greased 9x13 pan",
@@ -236,12 +238,12 @@ export const recipes: Recipe[] = [
   {
     id: 8,
     title: "Boursin Pasta",
-    category: "Mobilization",
+    category: "Dinner",
     time: "35 minutes",
     servings: "4 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A creamy roasted tomato intervention. The boursin cheese provides remarkable depth with minimal effort.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A creamy roasted tomato dish. The boursin cheese provides remarkable depth with minimal effort.",
+    ingredients: [
       "Boursin cheese (or garlic and herb spread)",
       "4-5 medium tomatoes",
       "1 small/medium onion",
@@ -254,7 +256,7 @@ export const recipes: Recipe[] = [
       "One box/lb pasta",
       "French bread"
     ],
-    protocol: [
+    instructions: [
       "Preheat oven to ~400 degrees",
       "Pour olive oil on bottom of cake pan",
       "Cut tomatoes and onions into quarters and put in pan",
@@ -272,12 +274,12 @@ export const recipes: Recipe[] = [
   {
     id: 9,
     title: "Chili",
-    category: "Restorative",
+    category: "Dinner",
     time: "3+ hours",
     servings: "8 servings",
-    stabilityGrade: 2,
-    clinicalImpression: "A hearty warming intervention. Extended cooking time develops complex therapeutic flavors.",
-    composition: [
+    difficultyLevel: 2,
+    description: "A hearty warming dish. Extended cooking time develops complex comforting flavors.",
+    ingredients: [
       "3 cans petite diced tomatoes",
       "2-3 cans of beans of your choice",
       "1 can of whole corn",
@@ -293,7 +295,7 @@ export const recipes: Recipe[] = [
       "2 TBSP brown sugar",
       "(optional) sprinkle of red pepper flakes"
     ],
-    protocol: [
+    instructions: [
       "Put all the cans after draining and rinsing, broth and spices/sugar in a crockpot/stove pot on medium/high",
       "Dice onion, jalapeno, bell pepper, and garlic",
       "Stir and add water/broth as needed",
@@ -306,12 +308,12 @@ export const recipes: Recipe[] = [
   {
     id: 10,
     title: "Queso",
-    category: "Mobilization",
+    category: "Sides & Snacks",
     time: "15 minutes",
     servings: "6 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A crowd-pleasing appetizer intervention. Homemade preparation far exceeds processed alternatives.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A crowd-pleasing appetizer dish. Homemade preparation far exceeds processed alternatives.",
+    ingredients: [
       "3 TBSP flour",
       "3.5 TBSP butter",
       "10 oz of cheddar cheese",
@@ -322,7 +324,7 @@ export const recipes: Recipe[] = [
       "1 TSP garlic powder",
       "Sprinkle of chili flakes"
     ],
-    protocol: [
+    instructions: [
       "Heat stove to medium heat and put butter in pan",
       "After butter has melted, add the flour and stir",
       "Slowly add milk and continue to stir",
@@ -335,12 +337,12 @@ export const recipes: Recipe[] = [
   {
     id: 11,
     title: "Chicken Tortilla Soup",
-    category: "Restorative",
+    category: "Lunch",
     time: "45 minutes",
     servings: "6 servings",
-    stabilityGrade: 2,
-    clinicalImpression: "A spicy, comforting intervention with excellent protein delivery. The dried peppers provide authentic depth.",
-    composition: [
+    difficultyLevel: 2,
+    description: "A spicy, comforting dish with excellent protein. The dried peppers provide authentic depth.",
+    ingredients: [
       "2 ancho peppers (dried)",
       "2 guajillo peppers (dried)",
       "2 tbsps olive oil",
@@ -363,7 +365,7 @@ export const recipes: Recipe[] = [
       "Cilantro, lime, avocado to top",
       "Tortilla chips"
     ],
-    protocol: [
+    instructions: [
       "Heat olive oil in large pot, simmer garlic dried peppers, and chipotle peppers for 2-3 minutes",
       "Add 1/4 cup of chicken broth to pot, cover and simmer for ~5 minutes",
       "Immersion blend pot ingredients when soft",
@@ -381,12 +383,12 @@ export const recipes: Recipe[] = [
   {
     id: 12,
     title: "Red Sauce Gnocchi",
-    category: "Mobilization",
+    category: "Dinner",
     time: "1 hour",
     servings: "4 servings",
-    stabilityGrade: 3,
-    clinicalImpression: "Homemade gnocchi provides superior texture and satisfaction. The roasted red pepper sauce adds complexity.",
-    composition: [
+    difficultyLevel: 3,
+    description: "Homemade gnocchi provides superior texture and satisfaction. The roasted red pepper sauce adds complexity.",
+    ingredients: [
       "2 medium sweet or russet potatoes",
       "1.75 - 2 cups of flour",
       "1 tsp salt",
@@ -406,7 +408,7 @@ export const recipes: Recipe[] = [
       "1 small lemon",
       "Parmesan to your liking"
     ],
-    protocol: [
+    instructions: [
       "Gnocchi: Pierce potatoes several times with a fork and microwave for 5-8 minutes until soft",
       "Scoop out the insides of the potatoes into a bowl and mash until smooth",
       "Add flour and salt to the mashed potatoes, mixing with your hands until the dough forms",
@@ -428,12 +430,12 @@ export const recipes: Recipe[] = [
   {
     id: 13,
     title: "Pesto",
-    category: "Mobilization",
+    category: "Dinner",
     time: "20 minutes",
     servings: "4 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A nutrient-dense sauce intervention. The broccoli adds fiber while maintaining classic pesto appeal.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A nutrient-dense sauce. The broccoli adds fiber while maintaining classic pesto appeal.",
+    ingredients: [
       "1/2 cup of walnuts",
       "1/2 cup of cashews",
       "1 medium head of broccoli",
@@ -448,7 +450,7 @@ export const recipes: Recipe[] = [
       "1/2 cup of grated Parmesan",
       "Dash of pepper to taste"
     ],
-    protocol: [
+    instructions: [
       "Boil water for pasta, drop in broccoli to pot to steam before adding pasta",
       "Boil pasta and drain, saving some starch water",
       "To food processor, add all ingredients and blend"
@@ -459,12 +461,12 @@ export const recipes: Recipe[] = [
   {
     id: 14,
     title: "Ramen",
-    category: "Restorative",
+    category: "Dinner",
     time: "1.5 hours",
     servings: "4 servings",
-    stabilityGrade: 2,
-    clinicalImpression: "A deeply warming intervention with customizable protein. Homemade broth elevates the therapeutic effect.",
-    composition: [
+    difficultyLevel: 2,
+    description: "A deeply warming dish with customizable protein. Homemade broth elevates the comforting effect.",
+    ingredients: [
       "7.5 Cups of Chicken Broth",
       "3/4 cup of carrots (Diced)",
       "1 small yellow onion (largely diced)",
@@ -484,7 +486,7 @@ export const recipes: Recipe[] = [
       "1 cup of spinach",
       "1/4 cup of cilantro"
     ],
-    protocol: [
+    instructions: [
       "For homemade broth: Bring pot of water to boil with carrots, celery, onion, and parsley",
       "Add chicken and simmer for about an hour",
       "Taste and add spices if needed. Remove chicken and veggies",
@@ -500,12 +502,12 @@ export const recipes: Recipe[] = [
   {
     id: 15,
     title: "Whole Wheat Buttermilk Pancakes",
-    category: "Structural",
+    category: "Breakfast",
     time: "25 minutes",
     servings: "8 pancakes",
-    stabilityGrade: 1,
-    clinicalImpression: "A wholesome breakfast intervention. The buttermilk substitute creates excellent fluffiness.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A wholesome breakfast dish. The buttermilk substitute creates excellent fluffiness.",
+    ingredients: [
       "1 Cup of whole wheat flour",
       "1.5 tsp of baking powder",
       "1/2 tsp baking soda",
@@ -519,7 +521,7 @@ export const recipes: Recipe[] = [
       "1/4 cup of greek yogurt",
       "1 tbsp maple syrup"
     ],
-    protocol: [
+    instructions: [
       "Mix dry ingredients in large mixing bowl",
       "In separate cup, mix milk and vinegar and let sit for 5-10 minutes, until curdled",
       "Once milk mixture has sat, mix in vanilla, egg, maple syrup and butter and whisk",
@@ -531,12 +533,12 @@ export const recipes: Recipe[] = [
   {
     id: 16,
     title: "Zesty Avocado Salad Dressing",
-    category: "Mobilization",
+    category: "Sides & Snacks",
     time: "10 minutes",
     servings: "6 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A healthy fat-rich dressing intervention. Transforms simple salads into satisfying meals.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A healthy fat-rich dressing. Transforms simple salads into satisfying meals.",
+    ingredients: [
       "1 Medium Avocado",
       "Small handful of parsley (stems included!)",
       "2 tablespoons of olive oil",
@@ -548,7 +550,7 @@ export const recipes: Recipe[] = [
       "1/2 teaspoon of oregano",
       "2 tablespoons of water"
     ],
-    protocol: [
+    instructions: [
       "Put all ingredients in food processor"
     ],
     tips: "",
@@ -557,12 +559,12 @@ export const recipes: Recipe[] = [
   {
     id: 17,
     title: "Sweet Potato Pancakes",
-    category: "Structural",
+    category: "Breakfast",
     time: "30 minutes",
     servings: "12 pancakes",
-    stabilityGrade: 2,
-    clinicalImpression: "A nutrient-dense breakfast alternative. Sweet potato provides sustained energy release.",
-    composition: [
+    difficultyLevel: 2,
+    description: "A nutrient-dense breakfast alternative. Sweet potato provides lasting energy.",
+    ingredients: [
       "2 cups of mashed sweet potato",
       "3 Tablespoons of Grass Fed Butter",
       "1.5 Tablespoons of Brown Sugar",
@@ -576,7 +578,7 @@ export const recipes: Recipe[] = [
       "1 Tablespoon of vegetable oil",
       "1 cup of water"
     ],
-    protocol: [
+    instructions: [
       "Mix mashed sweet potato, melted butter, brown sugar, and vanilla",
       "Add eggs and oatmilk, mix well",
       "In separate bowl, combine flour, salt, baking powder, and cinnamon",
@@ -590,19 +592,19 @@ export const recipes: Recipe[] = [
   {
     id: 18,
     title: "Mango Sorbet",
-    category: "Structural",
+    category: "Dessert",
     time: "3 hours",
     servings: "6 servings",
-    stabilityGrade: 1,
-    clinicalImpression: "A refreshing frozen intervention. Natural sweetness without excessive processing.",
-    composition: [
+    difficultyLevel: 1,
+    description: "A refreshing frozen treat. Natural sweetness without excessive processing.",
+    ingredients: [
       "4 Cups of Frozen Mango",
       "1/2 lemon squeezed",
       "2 tbsp greek yogurt",
       "3 tbsp honey",
       "1/2 cup of oatmilk"
     ],
-    protocol: [
+    instructions: [
       "Put mango and lemon in food processor",
       "Put honey and oat milk in separate bowl and heat in microwave, then mix",
       "Put honey and milk mixture in food processor",
@@ -615,131 +617,133 @@ export const recipes: Recipe[] = [
   {
     id: 19,
     title: "Split Pea Soup",
-    category: "Restorative",
+    category: "Dinner",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 2,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 2,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 20,
     title: "Mac and Cheese",
-    category: "Mobilization",
+    category: "Dinner",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 1,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 1,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 21,
     title: "Veggie Sandwiches",
-    category: "Mobilization",
+    category: "Lunch",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 1,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 1,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 22,
     title: "Fish Tacos",
-    category: "Mobilization",
+    category: "Dinner",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 2,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 2,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 23,
     title: "Feta Pasta",
-    category: "Mobilization",
+    category: "Dinner",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 1,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 1,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 24,
     title: "Hummus",
-    category: "Mobilization",
+    category: "Sides & Snacks",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 1,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 1,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 25,
     title: "Snickerdoodles",
-    category: "Structural",
+    category: "Dessert",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 2,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 2,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 26,
     title: "Gravy",
-    category: "Mobilization",
+    category: "Sides & Snacks",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 1,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 1,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   },
   {
     id: 27,
     title: "Shrimp Linguini",
-    category: "Mobilization",
+    category: "Dinner",
     time: "Coming soon",
     servings: "Coming soon",
-    stabilityGrade: 2,
-    clinicalImpression: "Recipe details coming soon.",
-    composition: [],
-    protocol: [],
+    difficultyLevel: 2,
+    description: "Recipe details coming soon.",
+    ingredients: [],
+    instructions: [],
     tips: "",
     img: placeholder
   }
 ];
 
 export const categories: readonly CategoryFilter[] = [
-  { id: "All", label: "All Cases", description: "View complete caseload" },
-  { id: "Restorative", label: "Restorative", description: "Soups & healing foods" },
-  { id: "Structural", label: "Structural", description: "Baking & foundations" },
-  { id: "Mobilization", label: "Mobilization", description: "Quick meals" }
+  { id: "All", label: "All Recipes", description: "View complete collection" },
+  { id: "Breakfast", label: "Breakfast", description: "Morning meals" },
+  { id: "Lunch", label: "Lunch", description: "Midday dishes" },
+  { id: "Dinner", label: "Dinner", description: "Evening meals" },
+  { id: "Dessert", label: "Dessert", description: "Sweet treats" },
+  { id: "Sides & Snacks", label: "Sides & Snacks", description: "Accompaniments & appetizers" }
 ] as const;
 
-export function getStabilityLabel(grade: StabilityGrade): StabilityLabel {
-  switch(grade) {
+export function getDifficultyLabel(level: DifficultyLevel): DifficultyLabel {
+  switch(level) {
     case 1: return "Easy";
     case 2: return "Moderate";
     case 3: return "Advanced";

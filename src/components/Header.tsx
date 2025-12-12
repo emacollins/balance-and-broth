@@ -47,7 +47,7 @@ function Header() {
             BROTH
           </h1>
           <p className="text-charcoal/60 text-sm mt-3 tracking-widest uppercase">
-            Culinary Case Files
+            Culinary Recipe Collection
           </p>
         </Link>
 

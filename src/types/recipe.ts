@@ -6,13 +6,13 @@
  */
 
 // Union type for recipe categories (provides autocomplete!)
-export type RecipeCategory = 'Restorative' | 'Structural' | 'Mobilization';
+export type RecipeCategory = 'Breakfast' | 'Lunch' | 'Dinner' | 'Dessert' | 'Sides & Snacks';
 
 // Literal type for difficulty (more precise than just 'number')
-export type StabilityGrade = 1 | 2 | 3;
+export type DifficultyLevel = 1 | 2 | 3;
 
-// Return type for stability label helper function
-export type StabilityLabel = 'Easy' | 'Moderate' | 'Advanced' | 'Unknown';
+// Return type for difficulty label helper function
+export type DifficultyLabel = 'Easy' | 'Moderate' | 'Advanced' | 'Unknown';
 
 // Main recipe interface - defines the shape of a recipe object
 export interface Recipe {
@@ -21,10 +21,10 @@ export interface Recipe {
   category: RecipeCategory;
   time: string;
   servings: string;
-  stabilityGrade: StabilityGrade;
-  clinicalImpression: string;
-  composition: string[];  // Ingredients array
-  protocol: string[];     // Instructions array
+  difficultyLevel: DifficultyLevel;
+  description: string;
+  ingredients: string[];
+  instructions: string[];
   tips: string;
   img: string;           // Image path
 }

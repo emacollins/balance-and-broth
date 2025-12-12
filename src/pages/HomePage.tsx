@@ -16,7 +16,7 @@ function HomePage() {
   const filteredRecipes: Recipe[] = filterRecipes(recipes, searchQuery, activeFilter, Infinity, false)
 
   const completeRecipes: Recipe[] = filteredRecipes.filter(
-    (recipe: Recipe) => recipe.protocol.length > 0
+    (recipe: Recipe) => recipe.instructions.length > 0
   );
 
   return (
@@ -26,10 +26,10 @@ function HomePage() {
       <main className="max-w-7xl mx-auto px-4 py-12">
         {/* Page Title */}
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-3">Case Files</h2>
+          <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-3">Recipe Collection</h2>
           <div className="flex items-center justify-center gap-3 text-charcoal/60 text-sm font-mono uppercase tracking-widest">
             <span className="h-px w-8 bg-charcoal/20"></span>
-            <span>{completeRecipes.length} active cases</span>
+            <span>{completeRecipes.length} recipes</span>
             <span className="h-px w-8 bg-charcoal/20"></span>
           </div>
         </div>
@@ -52,7 +52,7 @@ function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h3 className="font-serif text-2xl text-charcoal mb-2">No Cases Found</h3>
+            <h3 className="font-serif text-2xl text-charcoal mb-2">No Recipes Found</h3>
             <p className="text-charcoal/50 font-mono text-sm uppercase tracking-widest">
               Try adjusting your filter criteria
             </p>
@@ -60,16 +60,16 @@ function HomePage() {
         )}
 
         {/* Coming Soon Section */}
-        {filteredRecipes.some((r: Recipe) => r.protocol.length === 0) && (
+        {filteredRecipes.some((r: Recipe) => r.instructions.length === 0) && (
           <div className="mt-24 pt-12 border-t border-charcoal/10">
             <h3 className="font-serif text-2xl text-charcoal/40 text-center mb-8 flex items-center justify-center gap-4">
               <span className="h-px w-12 bg-charcoal/10"></span>
-              Pending Review
+              Coming Soon
               <span className="h-px w-12 bg-charcoal/10"></span>
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {filteredRecipes
-                .filter((r: Recipe) => r.protocol.length === 0)
+                .filter((r: Recipe) => r.instructions.length === 0)
                 .map((recipe: Recipe) => (
                   <span
                     key={recipe.id}

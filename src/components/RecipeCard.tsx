@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getStabilityLabel } from '../data/recipes';
+import { getDifficultyLabel } from '../data/recipes';
 import type { RecipeCardProps } from '../types/components';
 
 function RecipeCard({ recipe }: RecipeCardProps) {
-  const stabilityPercent: number = (recipe.stabilityGrade / 3) * 100;
+  const difficultyPercent: number = (recipe.difficultyLevel / 3) * 100;
 
   return (
     <Link
@@ -40,16 +40,16 @@ function RecipeCard({ recipe }: RecipeCardProps) {
             {recipe.title}
           </h3>
 
-          {/* Stability Grade */}
+          {/* Difficulty Level */}
           <div className="mb-6">
             <div className="flex justify-between text-xs text-charcoal/60 mb-1.5 font-mono">
-              <span className="uppercase tracking-wider">Stability Grade</span>
-              <span className="font-bold">{getStabilityLabel(recipe.stabilityGrade)}</span>
+              <span className="uppercase tracking-wider">Difficulty</span>
+              <span className="font-bold">{getDifficultyLabel(recipe.difficultyLevel)}</span>
             </div>
             <div className="h-1.5 bg-charcoal/5 rounded-full overflow-hidden">
               <div
                 className="h-full bg-sage transition-all duration-500 ease-out group-hover:bg-sage-dark"
-                style={{ width: `${stabilityPercent}%` }}
+                style={{ width: `${difficultyPercent}%` }}
               />
             </div>
           </div>
