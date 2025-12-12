@@ -24,9 +24,8 @@ function HomePage() {
       <Header />
 
       <main className="max-w-7xl mx-auto px-4 py-12">
-        {/* Page Title */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-3">Recipe Collection</h2>
+        {/* Recipe Count */}
+        <div className="text-center mb-1 animate-fade-in">
           <div className="flex items-center justify-center gap-3 text-charcoal/60 text-sm font-mono uppercase tracking-widest">
             <span className="h-px w-8 bg-charcoal/20"></span>
             <span>{completeRecipes.length} recipes</span>
