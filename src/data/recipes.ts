@@ -22,13 +22,14 @@ export const recipes: Recipe[] = [
       "3 Cups Flour",
       "1 Tsp Baking Soda",
       "1 Tsp Baking Powder",
-      "1/2 Tsp Salt",
+      "1/4 Tsp Salt",
       "1 Cup Granulated Sugar",
       "1 Cup Brown Sugar",
       "2 Tsp Vanilla",
       "2 Eggs",
       "2 Sticks Butter (1 cup)",
-      "1 Bag Chocolate Chips"
+      "1 Bag Chocolate Chips",
+      "Pinch of sea salt"
     ],
     instructions: [
       "Preheat oven to 350 degrees",
@@ -38,9 +39,10 @@ export const recipes: Recipe[] = [
       "Slowly add dry mixture into the bowl while mixing",
       "Fold chocolate chips in",
       "Roll into 2 inch balls and place on cookie sheet",
-      "Bake for 7-10 minutes and place cookies on a cooling rack"
+      "Bake for 7-10 minutes and place cookies on a cooling rack",
+      "Sprinkle sea salt over cookies immediatley after taking out of the oven"
     ],
-    tips: "Preroll all of the cookie balls, and they will be ready when you put a new sheet of cookies in the oven.",
+    tips: "Cool the batter in the fridge for better cookies, not required!",
     img: placeholder
   },
   {
@@ -719,16 +721,40 @@ export const recipes: Recipe[] = [
     img: placeholder
   },
   {
-    id: 27,
-    title: "Shrimp Linguini",
-    category: "Dinner",
-    time: "Coming soon",
-    servings: "Coming soon",
+    id: 28,
+    title: "Whole Wheat Lemon Poppy Seed Muffins",
+    category: "Breakfast",
+    time: "50 minutes",
+    servings: "12 muffins",
     difficultyLevel: 2,
-    description: "Recipe details coming soon.",
-    ingredients: [],
-    instructions: [],
-    tips: "",
+    description: "A healthy and guilt free way to enjoy muffins.",
+    ingredients: [
+      "1 cup milk (of choice)",
+      "2 tbsp lemon juice",
+      "Zest of ½ lemon",
+      "¼ cup olive oil",
+      "¼ cup honey",
+      "¼ cup maple syrup (or ½ cup honey or maple syrup total if not mixing both)",
+      "1 large egg",
+      "½ cup greek yogurt",
+      "1 tsp baking powder",
+      "1 tsp baking soda",
+      "½ tsp salt",
+      "2 cups whole wheat flour",
+      "⅓ cup oats",
+      "2 tsp poppy seeds"
+    ],
+    instructions: [
+      "Mix lemon juice and milk first and set aside for ~2 minutes",
+      "In a large bowl, whisk together olive oil with honey and maple syrup",
+      "Whisk in the egg and the milk-lemon mixture",
+      "In a separate bowl, mix dry ingredients - whole wheat flour, oats, salt, baking soda, and baking powder",
+      "Add wet ingredients to dry ingredients and mix until combined",
+      "Fold in the greek yogurt and poppy seeds last",
+      "Let batter sit for 30 minutes. Preheat oven to 400°F",
+      "Pour into a lined or greased muffin tin and bake at 400°F for 15 minutes, or until a toothpick comes out clean"
+    ],
+    tips: "You can use ½ cup of honey or ½ cup of maple syrup instead of mixing both if preferred.",
     img: placeholder
   }
 ];
